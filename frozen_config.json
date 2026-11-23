@@ -1,0 +1,35 @@
+{
+  "frozen_at_utc": "2026-11-23T17:38:17+00:00",
+  "model": "Random Forest",
+  "params": {
+    "n_estimators": 200,
+    "random_state": 42,
+    "n_jobs": -1,
+    "min_samples_leaf": 50,
+    "max_depth": null
+  },
+  "features": [
+    "failed_logins",
+    "new_device",
+    "mean_gap_s",
+    "geo_change",
+    "night_share",
+    "peer_group"
+  ],
+  "rule": "daily top-8 UTC; score desc, row_id asc",
+  "selection_basis": "max TP@8 на valid; при равенстве - более простая модель",
+  "valid_TP": {
+    "Logistic Regression": 23,
+    "Random Forest": 33,
+    "Isolation Forest": 13
+  },
+  "versions": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scipy": "1.16.3",
+    "sklearn": "1.7.2",
+    "joblib": "1.5.2",
+    "threadpoolctl": "3.6.0"
+  },
+  "test_labels_used_before_freeze": false
+}
